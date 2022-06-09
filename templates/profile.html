@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+
+{% if current_user.is_authenticated %}
+<h3>Имя: {{ current_user.name }}</h3>
+<h3>e-mail: {{ current_user.email }}</h3>
+<a href="{{ url_for('logout') }}" class="btn btn-secondary">Выйти</a>
+{% else %}
+<h1>Вы не вошли в систему</h1>
+{% endif %}
+
+{% endblock %}
